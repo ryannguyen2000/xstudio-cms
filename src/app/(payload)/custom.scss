@@ -1,0 +1,12 @@
+/* Ẩn toggle button mặc định của Payload */
+.payload-nav-toggle,
+.nav-toggle,
+[data-testid="nav-toggle"],
+.hamburger-button {
+  display: none !important;
+}
+
+/* Hoặc target theo class cụ thể hơn */
+.payload__nav-toggler {
+  display: none !important;
+}

@@ -15,18 +15,30 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@payloadcms/db-mongodb": "3.43.0",
     "@payloadcms/next": "3.43.0",
     "@payloadcms/payload-cloud": "3.43.0",
     "@payloadcms/richtext-lexical": "3.43.0",
     "@payloadcms/ui": "3.43.0",
+    "@reduxjs/toolkit": "^2.8.2",
+    "@tailwindcss/postcss": "^4.1.10",
+    "@tinymce/tinymce-react": "^6.2.1",
+    "antd": "^5.26.2",
+    "autoprefixer": "^10.4.21",
+    "axios": "^1.10.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.8.1",
+    "lodash": "^4.17.21",
     "next": "15.3.0",
     "payload": "3.43.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "sharp": "0.32.6"
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.6.2",
+    "sharp": "0.32.6",
+    "tailwindcss": "^4.1.10",
+    "tinymce": "^7.9.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
