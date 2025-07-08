@@ -79,7 +79,7 @@ const ContentCMSSidebar = () => {
   const loadProjects = async () => {
     setLoading(true)
     try {
-      const projectsData = await apiService.getProjects()
+      const projectsData = await apiService.getProjects('2222')
       setProjects(projectsData)
     } catch (error) {
       console.error('Failed to load projects:', error)

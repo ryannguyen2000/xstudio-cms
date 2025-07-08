@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from 'axios'
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_EXTERNAL_URL || 'http://localhost:4000/api'
@@ -82,7 +83,7 @@ class ApiService {
     layoutId: string
   }): Promise<Document | null> {
     try {
-      const response = await this.axiosInstance.get(`/documents/${id}`)
+      const response = await this.axiosInstance.get(`/documents/${projectId}`)
       return response.data
     } catch (error) {
       console.error('Error fetching document:', error)

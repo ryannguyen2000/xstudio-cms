@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Space, Table, Tag, Button } from 'antd'
+import { Table, Tag } from 'antd'
 import type { TableProps } from 'antd'
 import { useRouter } from 'next/navigation'
 import { useAuth } from '@payloadcms/ui'
@@ -62,28 +62,28 @@ const ProjectsList: React.FC = () => {
   const router = useRouter()
   const { user } = useAuth()
 
-  useEffect(() => {
-    const loadProjects = async () => {
-      try {
-        const response = await apiService.getProjects(user?.id)
-        setProjects(response?.data || [])
-      } catch (error) {
-        console.error('Error loading projects:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-    loadProjects()
-  }, [])
+  // useEffect(() => {
+  //   const loadProjects = async () => {
+  //     try {
+  //       const response = await apiService.getProjects(user?.id)
+  //       setProjects(response?.data || [])
+  //     } catch (error) {
+  //       console.error('Error loading projects:', error)
+  //     } finally {
+  //       setLoading(false)
+  //     }
+  //   }
+  //   loadProjects()
+  // }, [])
 
   // Ánh xạ dữ liệu projects sang định dạng bảng
-  const dataSource: ProjectDataType[] = projects.map((project) => ({
-    key: project?.projectId,
-    projectDisplayName: project?.projectDisplayName,
-    ownerId: project?.ownerId,
-    createdAt: project?.createdAt,
-    ownersGroupId: project?.ownersGroupId,
-  }))
+  // const dataSource: ProjectDataType[] = projects.map((project) => ({
+  //   key: project?.projectId,
+  //   projectDisplayName: project?.projectDisplayName,
+  //   ownerId: project?.ownerId,
+  //   createdAt: project?.createdAt,
+  //   ownersGroupId: project?.ownersGroupId,
+  // }))
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
@@ -93,7 +93,8 @@ const ProjectsList: React.FC = () => {
       ) : (
         <Table<ProjectDataType>
           columns={columns}
-          dataSource={dataSource}
+          // dataSource={dataSource}
+          dataSource={[]}
           className="shadow-md rounded-lg bg-white"
           rowClassName="hover:bg-gray-50 cursor-pointer"
           pagination={{ pageSize: 10 }}

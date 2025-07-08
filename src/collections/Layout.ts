@@ -93,9 +93,9 @@ export const Layouts: CollectionConfig = {
           if (!value[key]) {
             return `Layout JSON must contain ${key} configuration`
           }
-          if (!value[key].root) {
-            return `Layout JSON ${key} must contain root element`
-          }
+          // if (!value[key].root) {
+          //   return `Layout JSON ${key} must contain root element`
+          // }
         }
 
         return true

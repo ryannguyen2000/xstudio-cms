@@ -2,13 +2,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { Table, Card, Tag, Button, Space, Typography, Badge } from 'antd'
-import {
-  EditOutlined,
-  EyeOutlined,
-  CheckCircleOutlined,
-  ClockCircleOutlined,
-} from '@ant-design/icons'
+import { Table, Card, Tag, Space, Typography, Badge } from 'antd'
+import { CheckCircleOutlined, ClockCircleOutlined } from '@ant-design/icons'
 import _ from 'lodash'
 import { useRouter } from 'next/navigation'
 
@@ -137,7 +132,7 @@ const LayoutsList: React.FC = () => {
     {
       title: 'Actions',
       key: 'actions',
-      render: (record: LayoutItem) => (
+      render: () => (
         <Space>
           {/* <Button
             type="primary"

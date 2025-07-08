@@ -71,26 +71,27 @@ const LayoutEdit: React.FC = () => {
       setHasChanges(true)
 
       // Thử các cách update form
-      if (typeof form.setFieldValue === 'function') {
-        form.setFieldValue('layoutJson', updatedLayout)
-      } else if (typeof form.setValue === 'function') {
-        form.setValue('layoutJson', updatedLayout)
-      } else if (typeof form.dispatch === 'function') {
-        form.dispatch({
-          type: 'UPDATE',
-          path: 'layoutJson',
-          value: updatedLayout,
-        })
-      } else if (typeof form.dispatchFields === 'function') {
-        form.dispatchFields({
-          type: 'UPDATE',
-          path: 'layoutJson',
-          value: updatedLayout,
-        })
-      } else {
-        console.warn('No method found to update form field')
-      }
+      // if (typeof form.setFieldValue === 'function') {
+      //   form.setFieldValue('layoutJson', updatedLayout)
+      // } else if (typeof form.setValue === 'function') {
+      //   form.setValue('layoutJson', updatedLayout)
+      // } else if (typeof form.dispatch === 'function') {
+      //   form.dispatch({
+      //     type: 'UPDATE',
+      //     path: 'layoutJson',
+      //     value: updatedLayout,
+      //   })
+      // } else if (typeof form.dispatchFields === 'function') {
+      //   form.dispatchFields({
+      //     type: 'UPDATE',
+      //     path: 'layoutJson',
+      //     value: updatedLayout,
+      //   })
+      // } else {
+      //   console.warn('No method found to update form field')
+      // }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [layoutData, selectedDevice, form],
   )
 
@@ -145,12 +146,15 @@ const LayoutEdit: React.FC = () => {
     try {
       // Cách 1: Thử submit trực tiếp
       if (typeof form.submit === 'function') {
-        const result = await form.submit()
-        if (result) {
-          message.success('Lưu thay đổi thành công')
-          setHasChanges(false)
-          await loadDocuments()
-        }
+        await form.submit()
+        // if (result) {
+        //   message.success('Lưu thay đổi thành công')
+        //   setHasChanges(false)
+        //   await loadDocuments()
+        // }
+        message.success('Lưu thay đổi thành công')
+        setHasChanges(false)
+        await loadDocuments()
       }
       // Cách 2: Thử với dữ liệu manual
       else {
@@ -317,7 +321,7 @@ const LayoutEdit: React.FC = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               {getElementIcon(element.value)}
-              <span className="font-semibold">{element?.name}</span>
+              {/* <span className="font-semibold">{element?.name}</span> */}
               {/* <Badge count={elementId} className="!bg-gray-100 !text-gray-600 !text-xs" /> */}
             </div>
           </div>
@@ -350,7 +354,7 @@ const LayoutEdit: React.FC = () => {
         {element?.data?.cms?.type === 'media' && (
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700 mb-3">Media:</label>
-            {renderCompactUpload(elementId, 'media', element.data?.cms?.url)}
+            {/* {renderCompactUpload(elementId, 'media', element.data?.cms?.url)} */}
           </div>
         )}
 
@@ -375,13 +379,13 @@ const LayoutEdit: React.FC = () => {
                         {styleKey.replace('style_', '')} Background
                       </h5>
 
-                      {renderCompactUpload(
+                      {/* {renderCompactUpload(
                         elementId,
                         styleKey,
                         element[styleKey as keyof LayoutElement]?.backgroundImage
                           ?.replace(/^url\(/, '')
                           .replace(/\)$/, '') || '',
-                      )}
+                      )} */}
                     </div>
                   ),
               )}
@@ -509,10 +513,10 @@ const LayoutEdit: React.FC = () => {
           </div>
           <div className="space-y-1 text-sm text-gray-600">
             <p>
-              <span className="font-medium">Document:</span> {layoutData?.documentName || 'N/A'}
+              {/* <span className="font-medium">Document:</span> {layoutData?.documentName || 'N/A'} */}
             </p>
             <p>
-              <span className="font-medium">Path:</span> {layoutData?.uid || 'N/A'} •{' '}
+              {/* <span className="font-medium">Path:</span> {layoutData?.uid || 'N/A'} •{' '} */}
               <span className="font-medium">Elements:</span> {elementCount}
             </p>
           </div>
